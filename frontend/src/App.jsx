@@ -26,7 +26,7 @@ function App() {
       const sessionId = `${area}-${level}-${Date.now()}`
 
       const response = await fetch(
-        "http://127.0.0.1:8001/generate-exercise",
+        "/api/generate-exercise",
         {
           method: "POST",
           headers: {
@@ -93,9 +93,6 @@ function App() {
     setError("")
     setAiResult("")
 
-    // If user has already selected Reading/Writing/
-    // Vocabulary/Grammar, generate fresh exercise
-    // for the newly selected level.
     if (selectedArea) {
       await generateExercise(selectedArea, level)
     }
@@ -138,9 +135,7 @@ function App() {
   return (
     <div className="min-h-screen bg-slate-50">
 
-      {/* =====================================
-          HEADER
-      ====================================== */}
+      {/* HEADER */}
 
       <header className="bg-white border-b border-slate-200">
 
@@ -169,17 +164,11 @@ function App() {
 
       </header>
 
-
-      {/* =====================================
-          MAIN
-      ====================================== */}
+      {/* MAIN */}
 
       <main className="max-w-7xl mx-auto px-6 py-10">
 
-
-        {/* =====================================
-            WELCOME SECTION
-        ====================================== */}
+        {/* WELCOME SECTION */}
 
         <section className="mb-10">
 
@@ -197,10 +186,7 @@ function App() {
 
         </section>
 
-
-        {/* =====================================
-            QUICK LEARNING AREAS
-        ====================================== */}
+        {/* QUICK LEARNING AREAS */}
 
         <section className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
@@ -229,7 +215,6 @@ function App() {
 
           </button>
 
-
           {/* Writing */}
 
           <button
@@ -255,7 +240,6 @@ function App() {
 
           </button>
 
-
           {/* Vocabulary */}
 
           <button
@@ -280,7 +264,6 @@ function App() {
             </div>
 
           </button>
-
 
           {/* Grammar */}
 
@@ -309,10 +292,7 @@ function App() {
 
         </section>
 
-
-        {/* =====================================
-            LEVEL SELECTION
-        ====================================== */}
+        {/* LEVEL SELECTION */}
 
         <section
           id="level-selection"
@@ -326,10 +306,7 @@ function App() {
 
         </section>
 
-
-        {/* =====================================
-            LEARNING DASHBOARD
-        ====================================== */}
+        {/* LEARNING DASHBOARD */}
 
         <section className="mt-10">
 
@@ -339,20 +316,14 @@ function App() {
 
         </section>
 
-
-        {/* =====================================
-            AI PRACTICE SECTION
-        ====================================== */}
+        {/* AI PRACTICE SECTION */}
 
         <section
           id="practice-section"
           className="mt-10"
         >
 
-
-          {/* ===================================
-              LOADING
-          ==================================== */}
+          {/* LOADING */}
 
           {loading && (
 
@@ -379,10 +350,7 @@ function App() {
 
           )}
 
-
-          {/* ===================================
-              ERROR
-          ==================================== */}
+          {/* ERROR */}
 
           {!loading && error && (
 
@@ -411,10 +379,7 @@ function App() {
 
           )}
 
-
-          {/* ===================================
-              READING PRACTICE
-          ==================================== */}
+          {/* READING PRACTICE */}
 
           {!loading &&
             !error &&
@@ -429,10 +394,7 @@ function App() {
 
             )}
 
-
-          {/* ===================================
-              WRITING PRACTICE
-          ==================================== */}
+          {/* WRITING PRACTICE */}
 
           {!loading &&
             !error &&
@@ -447,10 +409,7 @@ function App() {
 
             )}
 
-
-          {/* ===================================
-              VOCABULARY PRACTICE
-          ==================================== */}
+          {/* VOCABULARY PRACTICE */}
 
           {!loading &&
             !error &&
@@ -465,10 +424,7 @@ function App() {
 
             )}
 
-
-          {/* ===================================
-              GRAMMAR PRACTICE
-          ==================================== */}
+          {/* GRAMMAR PRACTICE */}
 
           {!loading &&
             !error &&
@@ -483,10 +439,7 @@ function App() {
 
             )}
 
-
-          {/* ===================================
-              INITIAL PRACTICE COMPONENTS
-          ==================================== */}
+          {/* INITIAL PRACTICE COMPONENTS */}
 
           {!loading &&
             !error &&
